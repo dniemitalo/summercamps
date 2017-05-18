@@ -18,26 +18,60 @@ $(document).ready(function(){
 });//close document ready
 
 function signUp(){
-    $('#status').html('Connecting to database...');
+    $('.status').html('Connecting to database...');
 
     var first = $('#first').val();
     var last = $('#last').val();
     var camp = $('#camp').val();
+    var grade = $('#grade').val();
+    var parent_first = $('#parent_first').val();
+    var parent_last = $('#parent_last').val();
+    var phone1 = $('#phone1').val();
+    var phone2 = $('#phone2').val();
+    var email1 = $('#email1').val();
+    var email2 = $('#email2').val();
+    var experience = $('#experience').val();
+    var allergies = $('#allergies').val();
+    var other = $('#other').val();
+    var agree = $('#agree').val();
+
     var params = 
         '&first='+first+
         '&last='+last+
-        '&camp='+camp;
-    // console.log(params);
+        '&camp='+camp+
+        '&grade='+grade+
+        '&parent_first='+parent_first+
+        '&parent_last='+parent_last+
+        '&phone1='+phone1+
+        '&phone2='+phone2+
+        '&email1='+email1+
+        '&email2='+email2+
+        '&experience='+experience+
+        '&allergies='+allergies+
+        '&other='+other+
+        '&agree='+agree;
 
     var xhr_signup = new XMLHttpRequest();
     xhr_signup.onreadystatechange = function() {
         if (xhr_signup.status == 200) {
-            // console.log("XMLHttpRequest successful");
-            // console.log(xhr_signup.responseText);
-            $('#status').html(xhr_signup.responseText);
-            getTopics();
+            ('response: '+xhr_signup.responseText);
+            $('.status').html(xhr_signup.responseText);
+            // getTopics();
             $('#first').val("");
             $('#last').val("");
+            $('#camp').val("");
+            $('#grade').val("");
+            $('#parent_first').val("");
+            $('#parent_last').val("");
+            $('#phone1').val("");
+            $('#phone2').val("");
+            $('#email1').val("");
+            $('#email2').val("");
+            $('#experience').val("");
+            $('#allergies').val("");
+            $('#other').val("");
+            $('#agree').val("");
+            $('#formContent').hide();
         }
     };
     xhr_signup.open("POST", "signup.php", true);
@@ -84,20 +118,20 @@ function getTopics(){
 
                 } else {
                     // console.log("XML HTTP error: "+xhr_numbers.status);
-                    $('#status').html(xhr_numbers.status);
+                    $('.status').html(xhr_numbers.status);
                     }
                 };
             xhr_numbers.send();
         }
         else{
-            $('#status').html(xhr_numbers.status);
+            $('.status').html(xhr_numbers.status);
         }
         };
     xhr_camps.send();
 }
 
 function validateForm(){
-    var first = $('#first').val();     
+    var first = $('#first').val();  
     var last = $('#last').val();
     var grade = $('#grade').val();
     var camp = $('#camp').val();
@@ -106,10 +140,9 @@ function validateForm(){
     var phone1 = $('#phone1').val();
     var email1 = $('#email1').val();
     var agree = $('#agree').val();
-    
     var alertmessage = "";
     var validated = true;
-    
+
     if (first==""||first==null||first.length<2){
         alertmessage += "Student's first name must be entered.<br>";
         validated = false;
@@ -118,7 +151,10 @@ function validateForm(){
         alertmessage += "Student's last name must be entered.<br>";
         validated = false;
     }
-
+    if (grade =="" || grade == null){
+        alertmessage += "Grade must be selected.<br>";
+        validated = false;
+    }    
     if (camp =="" || camp == null){
         alertmessage += "Camp week/type must be selected.<br>";
         validated = false;
@@ -139,12 +175,17 @@ function validateForm(){
         alertmessage += "At least one email must be entered.<br>";
         validated = false;
     }
+    if (agree =="" || agree == null){
+        alertmessage += "You must check 'agree.'<br>";
+        validated = false;
+    }
+
     if (validated==false){
-        $("#status").html("<span style=\"color:red;font-weight:bold;font-size:110%\">"+alertmessage+"</span>");
+        $(".status").html("<span style=\"color:red;font-weight:bold;font-size:110%\">"+alertmessage+"</span>");
         window.scrollTo(0,document.body.scrollHeight);
     }
     if (validated){
-        $("#status").html("<span style=\"color:red;font-weight:bold;font-size:110%\">"+""+"</span>");
+        $(".status").html("<span style=\"color:red;font-weight:bold;font-size:110%\">"+""+"</span>");
     }
     return validated;      
 }

@@ -1,9 +1,68 @@
+<!doctype html>
 <html>
 <head>
-	<title>Linn-Mar Robotics Summer Camps</title>
+  <link rel='stylesheet' href="w3.css">
+  <link rel='stylesheet' href="w3-theme-red.css">
+  <link rel='stylesheet' href="style.css">
+  <link rel="icon" href="logo.ico" type="image/ico" sizes="16x16">
+  <meta name=viewport content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="index.js"></script>
+  <style>
+/*      p.normal {
+       font-style: normal;
+      }*/
+      /*div {
+       margin-top: 50px;
+      }*/
+    </style>
 </head>
-<body>
-<h2>Registration link is coming soon! It will probably be available by May 5, 2017.</h2>
-<p><a href="http://www.lmrobotics.com/camps">Information about 2017 Linn-Mar Robotics Summer Camps</a></p>
+<body class="w3-theme-d3">
+    <div class="w3-panel w3-theme-l3 w3-padding-large w3-round-xxlarge w3-border w3-border-black w3-center"><h1>Summer Camp Registration</h1></div>
+    <div class="w3-panel w3-theme-l3 w3-padding-large w3-round-xxlarge w3-border w3-border-black w3-text-white w3-margin-left w3-margin-right ">
+  <p class="status"></p>      
+  <form onsubmit="return false" method="post" id="formContent">
+    
+    Student First name: <input type="text" id="first" name="first"><br><br>
+    Student Last name: <input type="text" id="last" name="last"><br><br>
+    <p1>What grade is your child entering next fall?</p1><br>
+    <select id="grade" name="grade">
+      <option value="">Select Grade</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="-1">Other</option>  
+    </select><br><br>
+    <p1>Which camp will your child attend?</p1><br>
+    <p1>* Lego camps are intended for grades 4-6; Vex camps are intended for grades 7-9.</p1><br>
+    <p1>* Deadline to register online for each camp is 4 weeks prior; Payments must be recieved within 2 weeks after the online registration deadline.</p1>
+    <select id="camp" name="camp">
+      <option value="1">Lego Robotics Camp, July 24th-28th, 2017(grades 4-6)</option>
+      <option value="2">Vex Robotics Camp July 24th-28th, 2017(grades 7-9)</option>
+      <option value="3">Lego Robotics Camp, July 31st-August 4th, 2017(grades 4-6)</option>
+      <option value="4">Vex Robotics Camp, July 31st-August 4th, 2017(grades 7-9)</option><br>  
+    </select><br><br>  
+    Parent/Guardian First name: <input type="text" id="parent_first" name="parent_first"><br><br>
+    Parent/Guardian Last name: <input type="text" id="parent_last" name="parent_last"><br><br>
+    Parent/Guardian Phone #1: <input type="text" id="phone1" name="phone1"><br><br>
+    Parent/Guardian Phone #2: <input type="text" id="phone2" name="phone2"><br><br>
+    Parent/Guardian Email #1: <input type="text" id="email1" name="email1"><br><br>
+    Parent/Guardian Email #2: <input type="text" id="email2" name="email2"><br><br>
+    <p1>By registering your child in this camp, you agree to allow Linn-mar Robotics to use photos taken from the summer camp for marketing and and promotional purposes, such as can be found on <a href="http://lmrobotics.com/camps/">http://lmrobotics.com/camps/</a>. Do you agree?</p1><br><br>
+    <label for="agree">Yes, I agree to allow Linn-mar Robotics to use photos taken from the summer camp for marketing and and promotional purposes.</label><input type="checkbox" id="agree" name="agree" value="1"><br><br>
+    <p1>If your child has experience with these types of robots, or another robotics system, please tell us about it. This will help us group students and give them appropriate challenges.</p1><br>
+    <textarea rows="4" cols="50" id="experience" name="experience"></textarea><br>
+    <p1>Does your child have any allergies or any other health/wellness issues we should be aware of?</p1><br>
+    <textarea rows="4" cols="50" id="allergies" name="allergies"></textarea><br>
+    <p1>Any other information we should know?</p1><br>
+    <textarea rows="4" cols="50" id="other" name="other"></textarea><br><br>
+    <input type="submit" id="submit" name="">
+  <p class="status"></p>
+  </form>
+</div>
 </body>
 </html>
